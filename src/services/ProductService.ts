@@ -1,4 +1,4 @@
-import { safeParse, pipe, number, transform, parse, string } from 'valibot'
+import { safeParse, pipe, transform, parse, string } from 'valibot'
 import axios from 'axios'
 import {
   DraftProductSchema,
@@ -85,7 +85,7 @@ export async function getProductById(id: Product['id']) {
 export async function deleteProduct(id: Product['id']) {
   try {
     const url = `${import.meta.env.VITE_API_URL}/api/products/${id}`
-    const result = await axios.delete(url)
+    await axios.delete(url)
   } catch (error) {
     console.log(error)
   }
